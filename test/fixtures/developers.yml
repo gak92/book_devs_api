@@ -2,18 +2,18 @@
 
 one:
   name: MyString
+  description: MyString
   image: MyString
-  description: MyText
   title: MyString
-  rating: 1
   salary_exp: 1
+  rating: 1
   user: one
 
 two:
   name: MyString
+  description: MyString
   image: MyString
-  description: MyText
   title: MyString
-  rating: 1
   salary_exp: 1
+  rating: 1
   user: two
