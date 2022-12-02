@@ -1,2 +1,2 @@
-APP_DATABASE_ROLE_NAME: 'postgres'
-APP_DATABASE_PASSWORD: 'postgres'
+APP_DATABASE_ROLE_NAME: 'hellorails'
+APP_DATABASE_PASSWORD: 'hellorails'
