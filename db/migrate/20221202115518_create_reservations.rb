@@ -1,6 +1,6 @@
-class CreateApiV1Reservations < ActiveRecord::Migration[7.0]
+class CreateReservations < ActiveRecord::Migration[7.0]
   def change
-    create_table :api_v1_reservations do |t|
+    create_table :reservations do |t|
       t.string :name
       t.date :reservation_date
       t.string :city
