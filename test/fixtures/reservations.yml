@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  city: MyString
+  reservation_date: 2022-12-01
+  user: one
+  developer: one
+
+two:
+  city: MyString
+  reservation_date: 2022-12-01
+  user: two
+  developer: two
