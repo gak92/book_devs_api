@@ -7,9 +7,9 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
-user1 = User.create(name: "test1")
-user2 = User.create(name: "test2")
-user3 = User.create(name: "test3")
+user1 = User.create(name: "test1", email: "test1@test.com", password: "1234567")
+user2 = User.create(name: "test2", email: "test2@test.com", password: "1234567")
+user3 = User.create(name: "test3", email: "test3@test.com", password: "1234567")
 
 dev1 = Developer.create(name: "Dev1", image: "link1", description: "Hire me for web development", title: "Full Stack Web Developer", rating: 4, salary_exp: 15000, user: user1)
 dev2 = Developer.create(name: "Dev2", image: "link2", description: "Hire me for web development", title: "Front End Web Developer", rating: 5, salary_exp: 18000, user: user2)
