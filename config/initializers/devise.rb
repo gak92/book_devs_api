@@ -14,7 +14,9 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '5ef5638662034c6f7dd84e8748490b3758c58d905893ab344d1811de03e5a4ffeaec577c80e113423e5d2b5d3e659e8b8db3170ff3f614f16d127123e33f945e'
+  # config.secret_key = 'f30e33bf12ef6ee80ab6aed508e43c533f427962070e9f9f41c984c84fe6b8d6400252e1602d81c514b7d0a0794b935e59251264ac4fd85a038d7aa135750d6a'
+  # config.secret_key = '029accbd11fae5d8e1a42fc158fe4716e9121e72aa8c1bb073db336771395fe2616c3b501e14c97e7a32f8247bb9c670af264f1fad479d9f39456bc8649af669'
+  config.secret_key = Rails.application.secret_key_base
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -126,7 +128,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '3c2a6497fdb476b49752e156c8363782f4cbc30a8d88a30a8701c75d326e79990556e95368f787d3d9149aee4f98d8dc671b9b91eb9d34afc8579d8542924529'
+  # config.pepper = '052c6fbb6f3a5bea787bbdab065172228f95db91c2e4b8f856640aa2e32015a2f001637e676b2c95d1c521298d9d7ebe05a8e91bfc09396628d0a308545e04d5'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -309,4 +311,19 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
+
+  config.jwt do |jwt|
+    # jwt.secret = ENV['DEVISE_JWT_SECRET_KEY']
+    # jwt.secret = Rails.application.credentials.fetch(:secret_key_base)
+    # jwt.secret = '029accbd11fae5d8e1a42fc158fe4716e9121e72aa8c1bb073db336771395fe2616c3b501e14c97e7a32f8247bb9c670af264f1fad479d9f39456bc8649af669'
+    jwt.secret = Rails.application.secret_key_base
+    jwt.dispatch_requests = [
+      ['POST', %r{^/users/sign_in}]
+    ]
+    jwt.revocation_requests = [
+      ['DELETE', %r{^/users/sign_out}]
+    ]
+    jwt.expiration_time = 120.minutes.to_i
+  end
+
 end
