@@ -36,6 +36,9 @@ gem 'rack-cors'
 # Flexible authentication solution for Rails with Warden
 gem 'devise', '~> 4.8', '>= 4.8.1'
 
+# JWT authentication for devise with configurable token revocation strategies
+gem 'devise-jwt', '~> 0.10.0'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
