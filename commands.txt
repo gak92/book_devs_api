@@ -7,3 +7,5 @@ rails g scaffold reservations name:string reservation_date:date city:string user
 
 
 rails g devise:controllers users -c sessions registrations
+
+rails g migration add_jti_to_users

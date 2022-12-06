@@ -7,14 +7,15 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
-user1 = User.create(name: "test1", email: "test1@test.com", password: "1234567")
-user2 = User.create(name: "test2", email: "test2@test.com", password: "1234567")
-user3 = User.create(name: "test3", email: "test3@test.com", password: "1234567")
+admin = User.create(name: "admin", email: "admin@test.com", password: "1234567", jti: "asfsdffgdsgfgfg")
 
-dev1 = Developer.create(name: "Dev1", image: "link1", description: "Hire me for web development", title: "Full Stack Web Developer", rating: 4, salary_exp: 15000, user: user1)
-dev2 = Developer.create(name: "Dev2", image: "link2", description: "Hire me for web development", title: "Front End Web Developer", rating: 5, salary_exp: 18000, user: user2)
-dev3 = Developer.create(name: "Dev3", image: "link3", description: "Hire me for web development", title: "Back End Web Developer", rating: 3, salary_exp: 13000, user: user3)
+user1 = User.create(name: "test1", email: "test1@test.com", password: "1234567", jti: "asfsdfghdsgfgfg")
+user2 = User.create(name: "test2", email: "test2@test.com", password: "1234567", jti: "asfsdffgklgfgfg")
+user3 = User.create(name: "test3", email: "test3@test.com", password: "1234567", jti: "asfrtffgdsguifg")
 
+dev1 = Developer.create(name: "Dev1", image: "link1", description: "Hire me for web development", title: "Full Stack Web Developer", rating: 4, salary_exp: 15000, user: admin)
+dev2 = Developer.create(name: "Dev2", image: "link2", description: "Hire me for web development", title: "Front End Web Developer", rating: 5, salary_exp: 18000, user: admin)
+dev3 = Developer.create(name: "Dev3", image: "link3", description: "Hire me for web development", title: "Back End Web Developer", rating: 3, salary_exp: 13000, user: admin)
 
 reserv1 = Reservation.create(user: user1, developer: dev1, reservation_date: "12/02/2023", city: "Canada")
 reserv2 = Reservation.create(user: user2, developer: dev2, reservation_date: "12/09/2023", city: "France")
