@@ -7,5 +7,5 @@ class Developer < ApplicationRecord
   validates :image, presence: true
   validates :title, presence: true
   validates :salary_exp, presence: true, numericality: { greater_than: 0 }
-  validates :rating
+  validates :rating, presence: true
 end
