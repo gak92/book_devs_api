@@ -3,7 +3,8 @@ class Api::V1::ReservationsController < ApplicationController
 
   # GET /api/v1/reservations
   def index
-    @reservations = Reservation.all
+    # @reservations = Reservation.all
+    @reservations = current_user.reservations.all
 
     render json: @reservations
   end
@@ -16,9 +17,10 @@ class Api::V1::ReservationsController < ApplicationController
   # POST /api/v1/reservations
   def create
     @reservation = Reservation.new(reservation_params)
+    @reservation.user = current_user
 
     if @reservation.save
-      render json: @reservation, status: :created, location: @reservation
+      render json: @reservation, status: :created
     else
       render json: @reservation.errors, status: :unprocessable_entity
     end
@@ -35,7 +37,7 @@ class Api::V1::ReservationsController < ApplicationController
 
   # DELETE /api/v1/reservations/1
   def destroy
-    @reservation.destroy
+    render json: @reservation if @reservation.destroy
   end
 
   private
