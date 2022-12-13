@@ -18,7 +18,7 @@ class Api::V1::DevelopersController < ApplicationController
     @developer = Developer.new(developer_params)
 
     if @developer.save
-      render json: @developer, status: :created, location: @developer
+      render json: @developer, status: :created , location: @developer
     else
       render json: @developer.errors, status: :unprocessable_entity
     end
