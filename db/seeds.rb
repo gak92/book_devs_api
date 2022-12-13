@@ -7,7 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
-admin = User.create(name: "admin", email: "admin@test.com", password: "1234567", jti: "asfsdffgdsgfgfg")
+admin = User.create(name: "admin", email: "admin@test.com", password: "1234567", jti: "asfsdffgdsgfgfg", admin: true)
 
 user1 = User.create(name: "test1", email: "test1@test.com", password: "1234567", jti: "asfsdfghdsgfgfg")
 user2 = User.create(name: "test2", email: "test2@test.com", password: "1234567", jti: "asfsdffgklgfgfg")
