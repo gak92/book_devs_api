@@ -35,6 +35,8 @@ RSpec.configure do |config|
   # rubocop:disable Style/RedundantConstantBase
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
+  # rubocop:enable Style/RedundantConstantBase
+
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
