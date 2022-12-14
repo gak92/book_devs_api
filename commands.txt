@@ -12,3 +12,10 @@ rails generate devise:install
 rails g devise:controllers users -c sessions registrations
 
 rails g migration add_jti_to_users
+
+================================================================
+
+rails g rswag:install
+
+rails generate rspec:swagger API::V1::developers
+rails generate rspec:swagger API::V1::reservations
