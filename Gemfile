@@ -39,7 +39,8 @@ gem 'devise', '~> 4.8', '>= 4.8.1'
 # JWT authentication for devise with configurable token revocation strategies
 gem 'devise-jwt', '~> 0.10.0'
 
-# Generate beautiful API documentation, including a UI to explore and test operations, directly from your rspec integration tests
+# Generate beautiful API documentation, including a UI to explore and test operations,
+# directly from your rspec integration tests
 gem 'rswag'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]

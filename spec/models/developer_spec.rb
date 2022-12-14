@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe Developer, type: :model do
   before :each do
     @user = User.create(name: 'john3', email: 'john3@test.com', password: '1234567', admin: true)
-    @developer = Developer.create(name: 'Dev1', description: '5 year of development experience', image: 'link 1', title: 'Full Stack Developer', salary_exp: 25000, rating: 4, user_id: @user.id)
+    @developer = Developer.create(name: 'Dev1', description: '5 year of development experience', image: 'link 1',
+                                  title: 'Full Stack Developer', salary_exp: 25_000, rating: 4, user_id: @user.id)
   end
 
   it 'should be valid' do
@@ -56,10 +57,10 @@ RSpec.describe Developer, type: :model do
   end
 
   it 'should have valid salary_exp' do
-    @developer.salary_exp = 27000
+    @developer.salary_exp = 27_000
     expect(@developer).to be_valid
   end
-  
+
   it 'should not be valid with nil rating' do
     @developer.rating = nil
     expect(@developer).to_not be_valid
@@ -69,5 +70,4 @@ RSpec.describe Developer, type: :model do
     @developer.rating = 5
     expect(@developer).to be_valid
   end
-
 end
