@@ -19,3 +19,8 @@ rails g rswag:install
 
 rails generate rspec:swagger API::V1::developers
 rails generate rspec:swagger API::V1::reservations
+
+rails rswag:specs:swaggerize
+
+================================================================
+
