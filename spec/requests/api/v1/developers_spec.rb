@@ -1,100 +1,86 @@
-require 'swagger_helper'
+require 'rails_helper'
 
-RSpec.describe 'api/v1/developers', type: :request do
+RSpec.describe 'Developers', type: :request do
 
-  path '/api/v1/developers' do
-
-    get('list developers') do
-      response(200, 'successful') do
-
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
-          }
-        end
-        run_test!
-      end
-    end
-
-    post('create developer') do
-      response(200, 'successful') do
-
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
-          }
-        end
-        run_test!
-      end
+  describe 'When not sign in GET /index' do
+    before(:example) { get '/api/v1/developers' }
+    it 'should returns 401 success' do
+      expect(response.status).to eq(401)
     end
   end
 
-  path '/api/v1/developers/{id}' do
-    # You'll want to customize the parameter types...
-    parameter name: 'id', in: :path, type: :string, description: 'id'
-
-    get('show developer') do
-      response(200, 'successful') do
-        let(:id) { '123' }
-
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
-          }
-        end
-        run_test!
-      end
-    end
-
-    patch('update developer') do
-      response(200, 'successful') do
-        let(:id) { '123' }
-
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
-          }
-        end
-        run_test!
-      end
-    end
-
-    put('update developer') do
-      response(200, 'successful') do
-        let(:id) { '123' }
-
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
-          }
-        end
-        run_test!
-      end
-    end
-
-    delete('delete developer') do
-      response(200, 'successful') do
-        let(:id) { '123' }
-
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
-          }
-        end
-        run_test!
-      end
+  describe 'When sign in GET /index' do
+    let(:user) { create(:user) }
+    it "should return 200 success if login" do
+      sign_in user
+      get "/api/v1/developers"
+      expect(response.status).to eq(200)
     end
   end
+
+  describe 'GET /show' do
+    let(:user) { create(:user) }
+    let(:developer) { create(:developer) }    
+    it 'should returns http 200 success' do
+      sign_in user
+      get "/api/v1/developers/#{developer.id}"
+      expect(response.status).to eq(200)
+    end
+  end
+
+  describe 'when not signed in POST /create' do
+    user = User.create(name: 'admin', email: 'admin@test.com', password: "1234567", password_confirmation: "1234567")
+    it 'should return unauthorised when user not sign in' do
+      @user_id = user.id
+        post '/api/v1/developers/', params: {
+          developer: {
+            name: 'Test Dev1',
+            description: '10 Years of experience in development',
+            image: 'Image link',
+            title: 'Back end Developer',
+            salary_exp: 42000,
+            rating: 5,
+            user_id: @user_id
+          }
+        }
+      expect(response.status).to eq(401)
+    end
+  end
+
+  describe 'when signed in POST /create' do
+    user = User.create(name: 'admin', email: 'admin@test.com', password: "1234567", password_confirmation: "1234567")
+    @user_id = user.id
+    user.admin = true
+    it 'should return 201 (created) status when user sign in' do
+      sign_in user
+      post '/api/v1/developers/', params: {
+        developer: {
+          name: 'Test Dev1',
+          description: '10 Years of experience in development',
+          image: 'Image link',
+          title: 'Back end Developer',
+          salary_exp: 42000,
+          rating: 5,
+          user_id: @user_id
+        }
+      }
+      expect(response.status).to eq(201)
+    end
+  end
+
+  # describe 'DELETE /destroy' do
+  #   # let(:user) { create(:user) }
+  #   let(:developer) { create(:developer) }
+    
+  #   it 'should returns http 200 success' do
+  #     developer.user.admin = true
+  #     sign_in developer.user
+  #     delete "http://127.0.0.1:3000/api/v1/developers/#{developer.id}"
+  #     p response
+  #     expect(response.status).to eq(200)
+  #   end
+  # end
+
+  
+
 end
