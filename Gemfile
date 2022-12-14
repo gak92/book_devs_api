@@ -39,6 +39,9 @@ gem 'devise', '~> 4.8', '>= 4.8.1'
 # JWT authentication for devise with configurable token revocation strategies
 gem 'devise-jwt', '~> 0.10.0'
 
+# Generate beautiful API documentation, including a UI to explore and test operations, directly from your rspec integration tests
+gem 'rswag'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -51,6 +54,9 @@ group :development, :test do
 
   # rspec-rails is a testing framework for Rails 5+.
   gem 'rspec-rails', '~> 6.0.0'
+
+  # Simplify API integration testing with a succinct rspec DSL and generate OpenAPI specification
+  gem 'rswag-specs'
 
   # factory_bot_rails provides integration between factory_bot and rails 5.0 or newer
   gem 'factory_bot_rails'
