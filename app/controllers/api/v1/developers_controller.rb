@@ -35,7 +35,7 @@ class Api::V1::DevelopersController < ApplicationController
 
   # DELETE /developers/1
   def destroy
-    @developer.destroy
+    render json: @developer if @developer.destroy 
   end
 
   private

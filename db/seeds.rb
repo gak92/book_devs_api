@@ -13,12 +13,14 @@ user1 = User.create(name: "test1", email: "test1@test.com", password: "1234567",
 user2 = User.create(name: "test2", email: "test2@test.com", password: "1234567", jti: "asfsdffgklgfgfg")
 user3 = User.create(name: "test3", email: "test3@test.com", password: "1234567", jti: "asfrtffgdsguifg")
 
+
 dev1 = Developer.create(name: "Dev1", image: "https://img.freepik.com/free-photo/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair_285396-896.jpg", description: "Hire me for web development", title: "Full Stack Web Developer", rating: 4, salary_exp: 15000, user: admin)
 
 dev2 = Developer.create(name: "Dev2", image: "https://img.freepik.com/premium-photo/oh-my-god-portrait-astonished-handsome-man-denim-casual-shirt-looking-camera-with-big-amazed-eyes-saying-wow-shocked-by-unbelievable-news-indoor-studio-shot-isolated-yellow-background_416530-21128.jpg?w=2000", description: "Hire me for web development", title: "Front End Web Developer", rating: 5, salary_exp: 18000, user: admin)
 
 dev3 = Developer.create(name: "Dev3", image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500", description: "Hire me for web development", title: "Back End Web Developer", rating: 3, salary_exp: 13000, user: admin)
 
+dev4 = Developer.create(name: "Dev4", image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500", description: "Hire me for flutter development", title: "Back End Web Developer", rating: 3, salary_exp: 13000, user: admin)
 
 
 reserv1 = Reservation.create(user: user1, developer: dev1, reservation_date: "12/02/2023", city: "Canada")

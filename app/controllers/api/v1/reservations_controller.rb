@@ -3,7 +3,6 @@ class Api::V1::ReservationsController < ApplicationController
 
   # GET /api/v1/reservations
   def index
-    # @reservations = Reservation.all
     @reservations = current_user.reservations.all
 
     render json: @reservations
