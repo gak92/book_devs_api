@@ -39,6 +39,10 @@ gem 'devise', '~> 4.8', '>= 4.8.1'
 # JWT authentication for devise with configurable token revocation strategies
 gem 'devise-jwt', '~> 0.10.0'
 
+# Generate beautiful API documentation, including a UI to explore and test operations,
+# directly from your rspec integration tests
+gem 'rswag'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -48,6 +52,18 @@ gem 'devise-jwt', '~> 0.10.0'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+
+  # rspec-rails is a testing framework for Rails 5+.
+  gem 'rspec-rails', '~> 6.0.0'
+
+  # Simplify API integration testing with a succinct rspec DSL and generate OpenAPI specification
+  gem 'rswag-specs'
+
+  # factory_bot_rails provides integration between factory_bot and rails 5.0 or newer
+  gem 'factory_bot_rails'
+
+  # Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.
+  gem 'faker', '~> 3.0'
 end
 
 group :development do
