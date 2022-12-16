@@ -23,9 +23,15 @@ dev3 = Developer.create(name: "Dev3", image: "https://images.pexels.com/photos/2
 dev4 = Developer.create(name: "Dev4", image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500", description: "Hire me for flutter development", title: "Back End Web Developer", rating: 3, salary_exp: 13000, user: admin)
 
 
-reserv1 = Reservation.create(user: user1, developer: dev1, reservation_date: "12/02/2023", city: "Canada")
-reserv2 = Reservation.create(user: user2, developer: dev2, reservation_date: "12/09/2023", city: "France")
-reserv3 = Reservation.create(user: user3, developer: dev3, reservation_date: "01/02/2023", city: "Paris")
-
-
-
+reserv1 = Reservation.create(name: "Reservation1", user: user1, developer: dev1, reservation_date: "12/02/2023", city: "Canada")
+reserv2 = Reservation.create(name: "Reservation2", user: user2, developer: dev2, reservation_date: "12/09/2023", city: "France")
+reserv3 = Reservation.create(name: "Reservation3", user: user3, developer: dev3, reservation_date: "01/02/2023", city: "Paris")
+reserv4 = Reservation.create(name: "Reservation4", user: user1, developer: dev1, reservation_date: "12/02/2023", city: "Canada")
+reserv5 = Reservation.create(name: "Reservation6", user: user2, developer: dev2, reservation_date: "12/09/2023", city: "France")
+reserv6 = Reservation.create(name: "Reservation7", user: user3, developer: dev3, reservation_date: "01/02/2023", city: "Paris")
+reserv7 = Reservation.create(name: "Reservation8", user: user1, developer: dev1, reservation_date: "12/02/2023", city: "Canada")
+reserv8 = Reservation.create(name: "Reservation9", user: user2, developer: dev2, reservation_date: "12/09/2023", city: "France")
+reserv9 = Reservation.create(name: "Reservation10", user: user3, developer: dev3, reservation_date: "01/02/2023", city: "Paris")
+reserv10 = Reservation.create(name: "Reservation11", user: user1, developer: dev1, reservation_date: "12/02/2023", city: "Canada")
+reserv11 = Reservation.create(name: "Reservation12", user: user2, developer: dev2, reservation_date: "12/09/2023", city: "France")
+reserv12 = Reservation.create(name: "Reservation913", user: user3, developer: dev3, reservation_date: "01/02/2023", city: "Paris")

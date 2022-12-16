@@ -5,7 +5,7 @@ class Api::V1::ReservationsController < ApplicationController
   def index
     @reservations = current_user.reservations.all
 
-    render json: @reservations
+    render json: @reservations, include: :developer
   end
 
   # GET /api/v1/reservations/1
