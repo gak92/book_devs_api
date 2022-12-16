@@ -18,7 +18,7 @@ class Api::V1::DevelopersController < ApplicationController
     @developer = Developer.new(developer_params)
 
     if @developer.save
-      render json: @developer, status: :created , location: @developer
+      render json: @developer, status: :created, location: @developer
     else
       render json: @developer.errors, status: :unprocessable_entity
     end
@@ -35,7 +35,7 @@ class Api::V1::DevelopersController < ApplicationController
 
   # DELETE /developers/1
   def destroy
-    render json: @developer if @developer.destroy 
+    render json: @developer if @developer.destroy
   end
 
   private
