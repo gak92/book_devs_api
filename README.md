@@ -1,36 +1,3 @@
-<a name="readme-top"></a>
-
-<!--
-HOW TO USE:
-This is an example of how you may give instructions on setting up your project locally.
-
-Modify this file to match your project and remove sections that don't apply.
-
-REQUIRED SECTIONS:
-- Table of Contents
-- About the Project
-  - Built With
-  - Live Demo
-- Getting Started
-- Authors
-- Future Features
-- Contributing
-- Show your support
-- Acknowledgements
-- License
-
-After you're finished please remove all the comments and instructions!
--->
-
-<div align="center">
-
-  <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
-  <br/>
-
-  <h3><b>Microverse README Template</b></h3>
-
-</div>
-
 <!-- TABLE OF CONTENTS -->
 
 # 📗 Table of Contents
@@ -38,8 +5,6 @@ After you're finished please remove all the comments and instructions!
 - [📖 About the Project](#about-project)
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
-    - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -47,39 +12,40 @@ After you're finished please remove all the comments and instructions!
   - [Usage](#usage)
   - [Run tests](#run-tests)
   - [Deployment](#triangular_flag_on_post-deployment)
+  - [API Documentation](#api-documentation)
 - [👥 Authors](#authors)
-- [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
 - [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ](#faq)
 - [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [your_project_name] <a name="about-project"></a>
+# 📖 book_devs_api <a name="about-project"></a>
 
-> Describe your project in 1 or 2 sentences.
-
-**[your_project__name]** is a...
+**book_devs_api** is a rails AP1 for book_devs_app.
 
 ## 🛠 Built With <a name="built-with"></a>
 
-### Tech Stack <a name="tech-stack"></a>
+  - [Ruby](https://www.ruby-lang.org/en/)
+  - [Ruby on Rails](https://rubyonrails.org/)
+  - [PostgreSQL](https://www.postgresql.org/)
+  - [RSpec](https://rspec.info/)
 
-> Describe the tech stack and include only the relevant sections that apply to your project.
+### Tech Stack <a name="tech-stack"></a>
 
 <details>
   <summary>Client</summary>
   <ul>
-    <li><a href="https://reactjs.org/">React.js</a></li>
+    <li><a href="https://rubyonrails.org/">Ruby on Rails</a></li>
+    <li><a href="https://www.ruby-lang.org/en/">Ruby</a></li>
   </ul>
 </details>
 
 <details>
   <summary>Server</summary>
   <ul>
-    <li><a href="https://expressjs.com/">Express.js</a></li>
+    <li><a href="https://render.com/">Render</a></li>
   </ul>
 </details>
 
@@ -90,141 +56,147 @@ After you're finished please remove all the comments and instructions!
   </ul>
 </details>
 
-<!-- Features -->
-
-### Key Features <a name="key-features"></a>
-
-> Describe between 1-3 key features of the application.
-
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LIVE DEMO -->
-
-## 🚀 Live Demo <a name="live-demo"></a>
-
-> Add a link to your deployed project.
-
-- [Live Demo Link](https://yourdeployedapplicationlink.com)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-> Describe how a new developer could make use of your project.
-
 To get a local copy up and running, follow these steps.
+
+If you dont have Ruby installed on your computer, you can download it from [here](https://www.ruby-lang.org/en/downloads/).
+
+If you dont have Rails installed on your computer, you can download it from [here](https://rubyonrails.org/).
+
+If you dont have PostgreSQL installed on your computer, you can download it from [here](https://www.postgresql.org/download/).
 
 ### Prerequisites
 
-In order to run this project you need:
-
-<!--
-Example command:
-
-```sh
- gem install rails
-```
- -->
+- Ruby: v3.1.2
+- Rails: v7.0.1
+- PostgreSQL: v14.5
 
 ### Setup
 
-Clone this repository to your desired folder:
+If you have installed git you can clone the code to your machine, or download a ZIP of all the files directly.
 
-<!--
-Example commands:
+[Download the ZIP from this location](https://github.com/gak92/book_devs_api/archive/refs/heads/main.zip), or run the following [git](https://git-scm.com/downloads) command to clone the files to your machine:
 
-```sh
-  cd my-folder
-  git clone git@github.com:myaccount/my-project.git
+- [ ] Once the files are on your machine, open the _blog-app_ folder in your code editor.
+Run the following command in your terminal to install the required gems and run the application:
+
+- [ ] Open the config/database.yml file in the project directory and change the username and password to your PostgreSQL username and password.
+Edit the default section of the file to look like this:
+    
 ```
---->
+  default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <your PostgreSQL role username>
+  password: <your PostgreSQL role password>
+
+```
 
 ### Install
 
-Install this project with:
+`NOTE:` _You may need to run this command in the project directory to install the required gems and run the application:_
 
-<!--
-Example command:
-
-```sh
-  cd my-project
-  gem install
 ```
---->
+bundle install
+```
 
 ### Usage
 
 To run the project, execute the following command:
 
-<!--
-Example command:
+1. Create the database with:
 
 ```sh
-  rails server
+rails db:create
 ```
---->
+
+2. Run the migrations with:
+
+```sh
+rails db:migrate
+```
+
+3. Start the development server with:
+
+```sh
+rails server
+```
+
+4. Open the app in your browser at http://localhost:3000
 
 ### Run tests
 
 To run tests, run the following command:
 
-<!--
-Example command:
-
 ```sh
-  bin/rails test test/models/article_test.rb
+  bundle exec rspec
 ```
---->
 
 ### Deployment
 
 You can deploy this project using:
 
-<!--
-Example:
+1. Deplay to Heroku
 
 ```sh
+  git push heroku main
+```
+
+2. Or deploy to Render
+
+```sh
+  git push render main
+```
+<!-- how to use the api -->
+
+###  API Documentation  <a name="api-documentation"></a>
+
+- [ ] To get all greetings, send a GET request to the following URL:
 
 ```
- -->
+  https://book_devs_app.herokuapp.com/api/v1/greetings.json
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- AUTHORS -->
 
 ## 👥 Authors <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
+👤 **Desmond Owusu Ansah**
 
-👤 **Author1**
+- Github [@Owusu-Desmond](https://github.com/Owusu-Desmond)
+- Twitter [@DesmondOwusuDev](https://twitter.com/DesmondOwusuDev)
+- LinkedIn [@desmond-owusu-ansah](https://www.linkedin.com/in/desmond-owusu-ansah-09274a223/)
+- Dev.to [desmondowusudev](https://dev.to/desmondowusudev)
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+👤 **Ghazanfar Ali**
 
-👤 **Author2**
+- GitHub: [@gak92](https://github.com/gak92)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/ghazanfar-ali-9a4998a/)
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+👤 **Elisha Tetteyfio**
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+- GitHub: [@Elisha-Tetteyfio](https://github.com/Elisha-Tetteyfio)
+- Twitter: [@Elisha](https://twitter.com/Nii_AlYasa)
+- LinkedIn: [Elisha Tetteyfio](https://linkedin.com/in/elisha-tetteyfio)
 
-<!-- FUTURE FEATURES -->
+👤 **Taheny BELGUITH** 
 
-## 🔭 Future Features <a name="future-features"></a>
+- GitHub: [@TahenyBELGUITH](https://github.com/TahenyBELGUITH) 
+- Twitter: [@BelguithTaheny](https://twitter.com/BelguithTaheny) 
+- LinkedIn: [belguith-taheny](https://www.linkedin.com/in/belguith-taheny/) 
 
-> Describe 1 - 3 features you will add to the project.
+👤 **Hamayoun Ali** 
 
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
+- GitHub: [@Hamayounali](https://github.com/Hamayounali) 
+- Twitter: [@hamayounAli6](https://twitter.com/hamayounAli6) 
+- LinkedIn: [Humayoon Ali](https://www.linkedin.com/in/humayoon-ali-663ba2239) 
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -234,7 +206,7 @@ Example:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/gak92/book_devs_api/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -252,25 +224,8 @@ If you like this project...
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> Give credit to everyone who inspired your codebase.
+I would like to thanks [Gregoire Vella on Behance](https://www.behance.net/gregoirevella) the author of the original design,
 
-I would like to thank...
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- FAQ (optional) -->
-
-## ❓ FAQ <a name="faq"></a>
-
-> Add at least 2 questions new developers would ask when they decide to use your project.
-
-- **[Question_1]**
-
-  - [Answer_1]
-
-- **[Question_2]**
-
-  - [Answer_2]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
