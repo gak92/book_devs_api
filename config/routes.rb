@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount Rswag::Ui::Engine => '/api-docs'
+  mount Rswag::Api::Engine => '/api-docs'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   devise_for :users, controllers: {
     sessions:       'users/sessions',
@@ -10,10 +12,6 @@ Rails.application.routes.draw do
       resources :reservations
       resources :developers
       resources :members, only: [:index]
-      # devise_for :users, controllers: {
-      #   sessions:       'api/v1/users/sessions',
-      #   registrations:  'api/v1/users/registrations'
-      # }
     end
   end  
 
