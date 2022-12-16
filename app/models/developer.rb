@@ -1,6 +1,6 @@
 class Developer < ApplicationRecord
   belongs_to :user
-  has_many :reservations
+  has_many :reservations, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 50 }
   validates :description, presence: true
